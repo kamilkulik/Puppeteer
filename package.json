@@ -1,0 +1,22 @@
+{
+  "name": "puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e js index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamilkulik/Puppeteer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamilkulik/Puppeteer/issues"
+  },
+  "homepage": "https://github.com/kamilkulik/Puppeteer#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
