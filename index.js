@@ -1,9 +1,18 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs') // fs - file system, node module required for saving things as files
-const websiteURL = 'https://www.ceneo.pl/';
-const query = 'Samsung Galaxy S10';
+/*
+    a. add a readme file
+    b. refactor to split in into separate files using impoart / export the node.js way (syntax)
+    c. scraper from all the page
+    d. add in URL what you to look for
+*/
+
 const http = require('http');
 const url = require('url');
+const puppeteer = require('puppeteer');
+const fs = require('fs') // fs - file system, node module required for saving things as files
+
+const websiteURL = 'https://www.ceneo.pl/';
+const query = 'Samsung Galaxy S10';
+
 
 const scraper = async () => {
     const browser = await puppeteer.launch( {headless: true} );
@@ -52,8 +61,12 @@ scraper();
 
 const port = 4000;
 const requestHandler = async (request, response) => {
+    // check the url -> parse it, and exctract searchTerm
+    url.parse(request.url)
+
+    
     console.log(request.url);
-    response.writeHead(200, { 'Content-Type': 'Application / JSON'});
+    response.writeHead(200, { 'Content-Type': 'application/json'});  
     response.end(JSON.stringify(await scraper()));
 
     /* TO-DO:
